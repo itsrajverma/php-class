@@ -93,7 +93,7 @@ if(isset($_GET["did"])){
                                 <td><?= $data["mobile"]  ?></td>
                                 <td><?= $data["addon"]  ?></td>
                                 <td>
-                                    <a onclick="return confirm('Do you really want to delete this')" href="insert.php?did=<?= $data[" class="btn btn-danger">Delete</a>
+                                    <a onclick="return confirm('Do you really want to delete this')" href="insert.php?did=<?= $data["id"]; ?>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             <?
