@@ -41,9 +41,9 @@ if(isset($_GET["did"])){
 
             <?php
             if(isset($_POST["btnSave"])){
-                $name = $_POST["name"];
-                $email = $_POST["email"];
-                $mobile = $_POST["mobile"];
+                $name = mysqli_real_escape_string($link,$_POST["name"]);
+                $email = mysqli_real_escape_string($link,$_POST["email"]);
+                $mobile = mysqli_real_escape_string($link,$_POST["mobile"]);
 
                 $query = "insert into tbl_students(student_name,email,mobile,addon) values ('$name','$email','$mobile',now())";
                 $result = mysqli_query($link,$query);
@@ -94,6 +94,7 @@ if(isset($_GET["did"])){
                                 <td><?= $data["addon"]  ?></td>
                                 <td>
                                     <a onclick="return confirm('Do you really want to delete this')" href="insert.php?did=<?= $data["id"]; ?>" class="btn btn-danger">Delete</a>
+                                    <a  href="update.php?did=<?= $data["id"]; ?>" class="btn btn-warning">Update</a>
                                 </td>
                             </tr>
                             <?
